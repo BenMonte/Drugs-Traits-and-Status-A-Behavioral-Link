@@ -1,8 +1,5 @@
 package reporting.model;
 
-/**
- * Metadata for a single dataset used in the analysis.
- */
 public class DatasetInfo {
 
     private final String name;

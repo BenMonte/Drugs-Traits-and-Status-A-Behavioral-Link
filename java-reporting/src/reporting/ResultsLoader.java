@@ -11,28 +11,8 @@ import java.util.Map;
 
 import static reporting.JsonParser.*;
 
-/**
- * Loads a JSON results file and constructs a {@link Report} object.
- *
- * Expected JSON structure — see results.json for a full example:
- * <pre>
- * {
- *   "project_title": "...",
- *   "project_description": "...",
- *   "research_question": "...",
- *   "datasets": [ { "name": "...", "rows": N, "columns": N, "description": "..." } ],
- *   "key_correlations": [ { "variables": "...", "coefficient": 0.52, "note": "..." } ],
- *   "demographic_findings": [ { "category": "...", "detail": "..." } ],
- *   "model_findings": [ { "category": "...", "detail": "..." } ],
- *   "key_takeaways": [ "..." ]
- * }
- * </pre>
- */
 public class ResultsLoader {
 
-    /**
-     * Read a JSON results file and return a populated Report.
-     */
     public static Report load(Path path) throws IOException {
         if (!Files.exists(path)) {
             throw new IOException("File not found: " + path);
@@ -55,8 +35,6 @@ public class ResultsLoader {
         return new Report(summary, question, datasets, corrs,
                           demoFindings, modelFinds, takeaways);
     }
-
-    // ---- section parsers ----
 
     private static List<DatasetInfo> parseDatasets(Object obj) {
         List<DatasetInfo> list = new ArrayList<>();

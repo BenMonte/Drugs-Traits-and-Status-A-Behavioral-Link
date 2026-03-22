@@ -1,14 +1,8 @@
-# Java CLI Reporting Module — Stage 3
+# Java CLI Reporting Module
 
-> **Where this fits:** The Jupyter notebook (Stage 1) produces the analysis →
-> `export_results.py` (Stage 2) extracts findings into `results.json` →
-> **this module** (Stage 3) presents them as a polished interactive terminal
-> report.  See the root [README](../README.md) and [DEVLOG](../DEVLOG.md) for
-> the full project timeline.
-
-A lightweight, zero-dependency command-line tool that reads the JSON results
-file exported from the Python analysis notebook and prints a clean,
-section-by-section terminal report with an interactive menu.
+This module reads the JSON results file exported from the Python analysis
+and prints the findings in a simple interactive terminal view. See the root
+[README](../README.md) for the overall project context.
 
 ## Project Structure
 
@@ -31,19 +25,19 @@ java-reporting/
 └── README.md
 ```
 
-## Class Responsibilities
+## Classes
 
-| Class                      | Role                                             |
-|----------------------------|--------------------------------------------------|
-| `model.Report`             | Aggregates all seven report sections              |
-| `model.ProjectSummary`     | Title + description for the project overview      |
-| `model.DatasetInfo`        | Name, dimensions, description for one dataset     |
-| `model.Correlation`        | Variable pair, r-value, and interpretive note     |
-| `model.Finding`            | Category tag + detail string (demographics/model) |
-| `ResultsLoader`            | Reads JSON file → builds a `Report`               |
-| `JsonParser`               | Zero-dependency recursive-descent JSON parser     |
-| `ReportFormatter`          | Walks a `Report` and prints formatted output      |
-| `Main`                     | CLI glue (arg parsing, wiring loader → formatter) |
+| Class | Role |
+|-------|------|
+| `model.Report` | Holds the full report data |
+| `model.ProjectSummary` | Stores the project title and description |
+| `model.DatasetInfo` | Stores dataset metadata |
+| `model.Correlation` | Stores one correlation result |
+| `model.Finding` | Stores one demographic or model finding |
+| `ResultsLoader` | Loads JSON into a `Report` |
+| `JsonParser` | Parses the JSON text |
+| `ReportFormatter` | Prints the report sections |
+| `Main` | Runs the CLI menu |
 
 ## Prerequisites
 
@@ -79,8 +73,7 @@ See `results.json` for the full example. Top-level keys:
 
 ### Exporting from the Notebook
 
-The recommended way to regenerate the JSON is to run the export script
-from the project root:
+To regenerate the JSON, run the export script from the project root:
 
 ```bash
 python3 ../export_results.py          # writes results.json into this directory

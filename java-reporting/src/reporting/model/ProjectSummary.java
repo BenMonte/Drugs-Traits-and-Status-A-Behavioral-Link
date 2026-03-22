@@ -1,8 +1,5 @@
 package reporting.model;
 
-/**
- * Top-level container for the project summary text.
- */
 public class ProjectSummary {
 
     private final String title;

@@ -7,14 +7,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 
-/**
- * Formats a {@link Report} into polished plain-text CLI output.
- */
 public class ReportFormatter {
 
     private static final int WIDTH = 70;
-    private static final String HEAVY = "=".repeat(WIDTH);
-    private static final String LIGHT = "-".repeat(WIDTH);
     private static final int INDENT = 4;
     private static final String PAD = " ".repeat(INDENT);
 
@@ -24,7 +19,6 @@ public class ReportFormatter {
         this.report = report;
     }
 
-    /** Print the complete report to stdout. */
     public void printReport() {
         printBanner();
         printProjectSummary();
@@ -37,14 +31,10 @@ public class ReportFormatter {
         printFooter();
     }
 
-    // ---- section printers ------------------------------------------------
-
     private void printBanner() {
         out("");
-        out(HEAVY);
-        out("|" + center("DRUGS, TRAITS & STATUS", WIDTH - 2) + "|");
-        out("|" + center("Behavioral Analysis Report", WIDTH - 2) + "|");
-        out(HEAVY);
+        out("Drugs, Traits & Status");
+        out("Behavioral Analysis Report");
     }
 
     private void printProjectSummary() {
@@ -86,7 +76,6 @@ public class ReportFormatter {
         List<Correlation> corrs = report.getKeyCorrelations();
         if (corrs.isEmpty()) { out(PAD + "(none)"); return; }
 
-        // Find the longest variable-pair name for alignment
         int maxVar = 0;
         for (Correlation c : corrs) {
             maxVar = Math.max(maxVar, c.getVariables().length());
@@ -125,21 +114,13 @@ public class ReportFormatter {
 
     private void printFooter() {
         out("");
-        out(HEAVY);
-        out("|" + center("End of Report", WIDTH - 2) + "|");
-        out(HEAVY);
+        out("End of Report");
         out("");
     }
 
-    // ---- shared helpers --------------------------------------------------
-
-    /**
-     * Group findings by category and print under sub-headers.
-     */
     private void printGroupedFindings(List<Finding> findings) {
         if (findings.isEmpty()) { out(PAD + "(none)"); return; }
 
-        // Preserve insertion order of categories
         Map<String, List<String>> groups = new LinkedHashMap<>();
         for (Finding f : findings) {
             String key = f.getCategory().isEmpty() ? "General" : f.getCategory();
@@ -158,25 +139,14 @@ public class ReportFormatter {
 
     private void section(String title) {
         out("");
-        out(LIGHT);
-        out("  " + title);
-        out(LIGHT);
-    }
-
-    private static String center(String text, int width) {
-        int pad = Math.max(0, (width - text.length()) / 2);
-        int right = width - pad - text.length();
-        return " ".repeat(pad) + text + " ".repeat(Math.max(0, right));
+        out(title);
+        out("-".repeat(title.length()));
     }
 
     private static void out(String s) {
         System.out.println(s);
     }
 
-    /**
-     * Word-wrap text to fit within WIDTH. The first line prints at the
-     * current cursor position; continuation lines are indented.
-     */
     private void wrapped(String text, int indent) {
         if (text == null || text.isBlank()) { out(""); return; }
 

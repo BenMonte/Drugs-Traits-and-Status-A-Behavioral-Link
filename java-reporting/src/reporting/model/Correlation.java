@@ -1,8 +1,5 @@
 package reporting.model;
 
-/**
- * A single correlation finding (e.g. "Cannabis & Nicotine: r = 0.52").
- */
 public class Correlation {
 
     private final String variables;

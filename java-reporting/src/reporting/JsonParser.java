@@ -5,16 +5,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Minimal recursive-descent JSON parser.
- *
- * Supports objects, arrays, strings, numbers, booleans, and null.
- * No external dependencies — keeps the project self-contained.
- *
- * Usage:
- *   Object root = JsonParser.parse(jsonString);
- *   // root is a Map (object), List (array), String, Double, Boolean, or null
- */
 public class JsonParser {
 
     private final String json;
@@ -30,8 +20,6 @@ public class JsonParser {
         Object result = parser.readValue();
         return result;
     }
-
-    // ---- convenience cast helpers ----
 
     @SuppressWarnings("unchecked")
     public static Map<String, Object> asObject(Object o) {
@@ -56,8 +44,6 @@ public class JsonParser {
     public static int asInt(Object o) {
         return (int) asDouble(o);
     }
-
-    // ---- recursive-descent parser ----
 
     private Object readValue() {
         skipWhitespace();
@@ -157,8 +143,6 @@ public class JsonParser {
         if (json.startsWith("null", pos)) { pos += 4; return null; }
         throw error("Expected null");
     }
-
-    // ---- low-level helpers ----
 
     private char peek() {
         if (pos >= json.length()) throw error("Unexpected end of input");

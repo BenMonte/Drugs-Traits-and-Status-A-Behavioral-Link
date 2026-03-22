@@ -1,9 +1,5 @@
 package reporting.model;
 
-/**
- * A single finding from demographic or model analysis.
- * Used for both demographic findings and model findings sections.
- */
 public class Finding {
 
     private final String category;

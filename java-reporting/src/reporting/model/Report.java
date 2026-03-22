@@ -2,12 +2,6 @@ package reporting.model;
 
 import java.util.List;
 
-/**
- * Top-level report object that aggregates every section.
- *
- * Populated by {@link reporting.ResultsLoader} from a JSON file
- * and consumed by {@link reporting.ReportFormatter}.
- */
 public class Report {
 
     private final ProjectSummary projectSummary;

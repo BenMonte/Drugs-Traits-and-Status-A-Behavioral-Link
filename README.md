@@ -2,29 +2,20 @@
 
 This project investigates how the frequency of common drug use (cannabis, alcohol, nicotine) correlates with personality traits (neuroticism, extraversion, openness) and socioeconomic status.
 
-## Development Progression
-
-The repository evolved through four stages. Each stage builds on the output
-of the previous one.
-
-| Stage | Focus | Key Files |
-|-------|-------|-----------|
-| **1. Data Analysis** | Load, clean, and explore two datasets; run regressions and build visualizations | `FinalProject.ipynb` |
-| **2. Findings Export** | Extract notebook results into a structured JSON schema | `export_results.py` → `results.json` |
-| **3. Java CLI** | Build an interactive terminal report reader (zero dependencies) | `java-reporting/` |
-| **4. Documentation** | Tie all layers together with READMEs and phase markers | `README.md` |
+The repository includes the original notebook analysis, a Python export script,
+and a small Java CLI for viewing the summarized findings.
 
 ## Project Structure
 
 ```
-├── FinalProject.ipynb        ← Stage 1: Jupyter notebook (data cleaning, EDA, statistical analysis)
-├── export_results.py         ← Stage 2: Python script (exports findings to JSON)
-├── java-reporting/           ← Stage 3: Java CLI app (interactive terminal report)
+├── FinalProject.ipynb        ← Jupyter notebook for cleaning, EDA, and statistical analysis
+├── export_results.py         ← Python script that exports findings to JSON
+├── java-reporting/           ← Java CLI for viewing the exported report
 │   ├── src/reporting/        ←   Source code (model/, Main, JsonParser, etc.)
 │   ├── results.json          ←   Exported findings consumed by the CLI
 │   ├── compile.sh            ←   One-command build script
 │   └── README.md             ←   Module-specific documentation
-└── README.md                 ← This file — project overview
+└── README.md                 ← Project overview
 ```
 
 ## Quick Start

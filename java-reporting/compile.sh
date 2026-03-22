@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-# Compile the Java reporting module.
-# Run from the java-reporting/ directory.
-
 set -e
 
 SRC_DIR="src"

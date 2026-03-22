@@ -6,14 +6,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Scanner;
 
-/**
- * CLI entry point for the reporting tool.
- *
- * Usage:  java reporting.Main &lt;results.json&gt;
- *
- * Loads a JSON results file, then presents an interactive menu
- * to view the full report or individual sections.
- */
 public class Main {
 
     public static void main(String[] args) {
@@ -64,15 +56,13 @@ public class Main {
 
     private static void printMenu() {
         System.out.println();
-        System.out.println("======================================================================");
-        System.out.println("  REPORT MENU");
-        System.out.println("======================================================================");
-        System.out.println("  1)  Full Report");
-        System.out.println("  2)  Key Correlations");
-        System.out.println("  3)  Demographic Findings");
-        System.out.println("  4)  Model Findings");
-        System.out.println("  5)  Key Takeaways");
-        System.out.println("  0)  Exit");
-        System.out.println("----------------------------------------------------------------------");
+        System.out.println("Report Menu");
+        System.out.println("-----------");
+        System.out.println("  1) Full Report");
+        System.out.println("  2) Key Correlations");
+        System.out.println("  3) Demographic Findings");
+        System.out.println("  4) Model Findings");
+        System.out.println("  5) Key Takeaways");
+        System.out.println("  0) Exit");
     }
 }
