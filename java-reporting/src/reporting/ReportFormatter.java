@@ -7,8 +7,10 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 
+// Formats and prints report sections to the console with word wrapping
 public class ReportFormatter {
 
+    // Max line width and indentation used across all sections
     private static final int WIDTH = 70;
     private static final int INDENT = 4;
     private static final String PAD = " ".repeat(INDENT);
@@ -19,6 +21,7 @@ public class ReportFormatter {
         this.report = report;
     }
 
+    // Prints the entire report from top to bottom
     public void printReport() {
         printBanner();
         printProjectSummary();
@@ -118,6 +121,7 @@ public class ReportFormatter {
         out("");
     }
 
+    // Groups findings by category, then prints each group with bullet details
     private void printGroupedFindings(List<Finding> findings) {
         if (findings.isEmpty()) { out(PAD + "(none)"); return; }
 
@@ -147,6 +151,7 @@ public class ReportFormatter {
         System.out.println(s);
     }
 
+    // Wraps text to fit within WIDTH, padding continuation lines
     private void wrapped(String text, int indent) {
         if (text == null || text.isBlank()) { out(""); return; }
 

@@ -1,5 +1,6 @@
 package reporting.model;
 
+// Stores the project title and a short description of the study
 public class ProjectSummary {
 
     private final String title;

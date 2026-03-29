@@ -1,5 +1,6 @@
 package reporting.model;
 
+// Describes one dataset used in the analysis, name, size, and description
 public class DatasetInfo {
 
     private final String name;

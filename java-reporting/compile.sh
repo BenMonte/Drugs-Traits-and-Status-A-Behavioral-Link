@@ -4,6 +4,7 @@ set -e
 SRC_DIR="src"
 OUT_DIR="out"
 
+# Clean previous build output, then compile all Java sources
 rm -rf "$OUT_DIR"
 mkdir -p "$OUT_DIR"
 

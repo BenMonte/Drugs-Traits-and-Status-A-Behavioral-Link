@@ -1,5 +1,6 @@
 package reporting.model;
 
+// Represents a single research finding under a category
 public class Finding {
 
     private final String category;

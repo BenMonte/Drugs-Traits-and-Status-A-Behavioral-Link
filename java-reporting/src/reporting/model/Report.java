@@ -2,6 +2,7 @@ package reporting.model;
 
 import java.util.List;
 
+// Top level model that aggregates all sections of the report
 public class Report {
 
     private final ProjectSummary projectSummary;

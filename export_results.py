@@ -1,6 +1,7 @@
 import json
 import argparse
 
+# Builds the complete results dictionary for the behavioral analysis report
 def build_results():
     return {
         "project_title": "Drugs, Traits, and Status: A Behavioral Link",
@@ -78,6 +79,7 @@ def build_results():
         ],
     }
 
+# Writes the results dictionary to disk as formatted JSON
 def export(output_path):
     with open(output_path, "w") as f:
         json.dump(build_results(), f, indent=2)

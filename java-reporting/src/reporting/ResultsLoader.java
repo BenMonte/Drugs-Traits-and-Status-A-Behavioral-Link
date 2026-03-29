@@ -11,8 +11,10 @@ import java.util.Map;
 
 import static reporting.JsonParser.*;
 
+// Reads a JSON file and converts it into a Report with all sub models
 public class ResultsLoader {
 
+    // Loads the file, parses JSON, and assembles the Report object
     public static Report load(Path path) throws IOException {
         if (!Files.exists(path)) {
             throw new IOException("File not found: " + path);

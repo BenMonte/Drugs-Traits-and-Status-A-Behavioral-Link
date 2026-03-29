@@ -6,8 +6,10 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Scanner;
 
+// Entry point for the reporting application, provides a menu to view report sections
 public class Main {
 
+    // Loads the JSON results file and runs an interactive menu loop
     public static void main(String[] args) {
         if (args.length < 1) {
             System.err.println("Usage: java reporting.Main <results.json>");
@@ -33,6 +35,7 @@ public class Main {
         ReportFormatter formatter = new ReportFormatter(report);
         Scanner scanner = new Scanner(System.in);
 
+        // Keep prompting until the user chooses to exit
         while (true) {
             printMenu();
             System.out.print("  Enter choice: ");

@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+// Lightweight recursive descent JSON parser, no external libraries needed
 public class JsonParser {
 
     private final String json;
@@ -15,12 +16,14 @@ public class JsonParser {
         this.pos  = 0;
     }
 
+    // Parses a full JSON string and returns the top level value
     public static Object parse(String json) {
         JsonParser parser = new JsonParser(json);
         Object result = parser.readValue();
         return result;
     }
 
+    // Convenience casts for pulling typed values out of parsed JSON
     @SuppressWarnings("unchecked")
     public static Map<String, Object> asObject(Object o) {
         return (Map<String, Object>) o;
@@ -45,6 +48,7 @@ public class JsonParser {
         return (int) asDouble(o);
     }
 
+    // Dispatches to the correct reader based on the next character
     private Object readValue() {
         skipWhitespace();
         char c = peek();

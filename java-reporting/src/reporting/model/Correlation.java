@@ -1,5 +1,6 @@
 package reporting.model;
 
+// Holds a single correlation entry, variables paired with a coefficient and note
 public class Correlation {
 
     private final String variables;
